@@ -1,18 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <h1>QR-Code Generator</h1>
+  <p>Dead-simple, on-device qr code generator.</p>
+
+  <span>Width is {{ width }}</span>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { Vue } from 'vue-class-component';
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
+export default class App extends Vue {
+  data() {
+    return {
+      width: 500
+    }
+  }
+}
 </script>
 
 <style>
