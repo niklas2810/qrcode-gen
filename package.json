@@ -1,6 +1,6 @@
 {
   "name": "qrcode-gen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "qrcode": "^1.4.4",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0"
