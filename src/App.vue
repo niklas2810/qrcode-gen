@@ -1,6 +1,6 @@
 <template>
-  <h1>QR-Code Generator</h1>
-  <p>Dead-simple, on-device qr code generator.</p>
+  <h1>QR Code Generator</h1>
+  <p>Dead-simple, on-device QR code generator.</p>
   <div id="form-field">
     <input placeholder="Enter text or URL" @change="regenerateQrCode" v-model="content" type="text" id="content-input" />
     <select @change="regenerateQrCode" v-model="correctionLevel" id="quality-selection">
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-const QRCode = require("qrcode");
+import QRCode from "qrcode";
 
 export default {
   data() {

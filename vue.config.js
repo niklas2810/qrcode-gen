@@ -3,12 +3,13 @@ module.exports = {
     ? '/'
     : '/',
     pwa: {
-      name: "QR-Code Generator",
+      name: "QR Code Generator",
       appleMobileWebAppCapable: 'yes',
       appleMobileWebAppStatusBarStyle: 'black',
-      assetsVersion: "20210920-0900",
+      themeColor: "#FFFFFF",
+      assetsVersion: "20210920-1200",
       manifestOptions: {
-        short_name: "QRGen"
+        short_name: "qrcode-gen"
       },
     }
 }
