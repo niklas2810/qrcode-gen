@@ -4,7 +4,7 @@
   <div id="form-field">
     <input placeholder="Enter text or URL" @change="regenerateQrCode" v-model="content" type="text" id="content-input" />
     <select @change="regenerateQrCode" v-model="correctionLevel" id="quality-selection">
-      <option disabled value="M">Compression Quality</option>
+      <option disabled value="M">Correction Quality</option>
       <option value="L">low</option>
       <option value="M">medium</option>
       <option value="Q">quartile</option>
