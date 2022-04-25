@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/qrcode-gen/precache-manifest.324332d49d6c29fee9337b72f263115f.js"
+  "/qrcode-gen/precache-manifest.ebb8ae2e4ab262cfc67275d90fd825de.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "qrcode-gen"});
