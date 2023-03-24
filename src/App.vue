@@ -1,48 +1,53 @@
 <template>
-  <h1>QR Code Generator</h1>
-  <p>Dead-simple, on-device QR code generator.</p>
-  <div id="form-field">
-    <input placeholder="Enter text or URL" @change="regenerateQrCode" v-model="content" type="text" id="content-input" />
-    <select @change="regenerateQrCode" v-model="correctionLevel" id="quality-selection">
-      <option disabled value="M">Correction Quality</option>
-      <option value="L">low</option>
-      <option value="M">medium</option>
-      <option value="Q">quartile</option>
-      <option value="H">high</option>
-    </select>
+  <div>
+    <h1>QR Code Generator</h1>
+    <p>Dead-simple, on-device QR code generator.</p>
+    <div id="form-field">
+      <input
+        placeholder="Enter text or URL"
+        @change="regenerateQrCode"
+        v-model="content"
+        type="text"
+        id="content-input"
+      />
+      <select
+        @change="regenerateQrCode"
+        v-model="correctionLevel"
+        id="quality-selection"
+      >
+        <option disabled value="M">Correction Quality</option>
+        <option value="L">low</option>
+        <option value="M">medium</option>
+        <option value="Q">quartile</option>
+        <option value="H">high</option>
+      </select>
+    </div>
+    <div id="qrcode" v-html="svgcode"></div>
   </div>
-  <div id="qrcode" v-html="svgcode"></div>
 </template>
 
-<script>
-import QRCode from "qrcode";
+<script setup lang="ts">
+import QRCode, { QRCodeErrorCorrectionLevel, QRCodeToStringOptions } from "qrcode";
+import { onMounted, ref } from "vue";
 
-export default {
-  data() {
-    return {
-      content: "",
-      correctionLevel: "M",
-      svgcode: "",
-    };
-  },
-  mounted: function () {
-    this.regenerateQrCode();
-  },
-  methods: {
-    regenerateQrCode() {
-      if(!this.content)
-        return;
+const content = ref("");
+const correctionLevel = ref("M");
+const svgcode = ref("");
 
-      QRCode.toString(this.content, {
-        type: "svg",
-        errorCorrectionLevel: this.correctionLevel,
-      }).then((string, err) => {
-        if (err) throw err;
-        this.svgcode = string;
-      });
-    },
-  },
+const regenerateQrCode = async () => {
+  if (!content.value) return;
+
+  const options: QRCodeToStringOptions = {
+    type: "svg",
+    errorCorrectionLevel: correctionLevel.value as QRCodeErrorCorrectionLevel,
+  };
+
+  svgcode.value = await QRCode.toString(content.value, options);
 };
+
+onMounted(() => {
+  regenerateQrCode();
+});
 </script>
 
 <style>
