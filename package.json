@@ -13,7 +13,7 @@
     "vue": "^3.3.8"
   },
   "devDependencies": {
-    "@types/qrcode": "^1.5.4",
+    "@types/qrcode": "^1.5.5",
     "@vitejs/plugin-vue": "^2.3.4",
     "typescript": "^5.2.2",
     "vite": "^2.5.4"
