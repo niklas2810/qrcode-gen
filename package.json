@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "qrcode": "^1.5.3",
-    "vue": "^3.3.8"
+    "vue": "^3.3.9"
   },
   "devDependencies": {
     "@types/qrcode": "^1.5.5",
